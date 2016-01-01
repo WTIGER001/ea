@@ -9,7 +9,8 @@ app.controller('PlotCtrl', ['$scope', 'lodash', '$rootScope', 'trace', '$uibModa
     	axis : {x : "Time", y: "Altitude"}, 
     	excluded: []
     };
-    
+    $scope.axisName = ['']; // Hack, gets around the scoping issues with 
+
     $scope.fonts = [
     		'',
     		'Arial, sans-serif' ,
@@ -25,18 +26,6 @@ app.controller('PlotCtrl', ['$scope', 'lodash', '$rootScope', 'trace', '$uibModa
     	 	'PT Sans Narrow, sans-serif' , 
     	 	'Raleway, sans-serif' , 
     	 	'Times New Roman, Times, serif'];
-
-	 	$scope.palette = [
-        ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
-        ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
-        ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
-        ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
-        ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
-        ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
-        ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
-        ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
-    ];
-
 
     $scope.refresh = function () {
         console.log( "Refreshing Local Plot");
@@ -147,6 +136,14 @@ app.controller('PlotCtrl', ['$scope', 'lodash', '$rootScope', 'trace', '$uibModa
 			return axes;
     }
 
+    $scope.updateAxis = function() {
+    	 $scope.axis = $scope.axes[$scope.axisName[0]];
+    }
+
+    $scope.startsWith = function (actual, expected) {
+	    var lowerStr = (actual + "").toLowerCase();
+	    return lowerStr.indexOf(expected.toLowerCase()) === 0;
+	  }
 
     $scope.openSettings = function() {
     	var gd = $scope.getGd();
@@ -159,9 +156,10 @@ app.controller('PlotCtrl', ['$scope', 'lodash', '$rootScope', 'trace', '$uibModa
 			var axes = {};
     	angular.forEach($scope.axesNames, function(name) {
     		axes[name] = $scope.layoutCopy[name];
-    		$scope.axis = $scope.layoutCopy[name];
     	});
     	$scope.axes = axes;
+    	$scope.axisName[0] = $scope.axesNames[0];
+    	$scope.axis = $scope.axes[$scope.axisName[0]];
 
 	    var modalInstance = $uibModal.open({
 	      animation: true,
