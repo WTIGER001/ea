@@ -1,0 +1,52 @@
+<!-- Plot Template-->
+<div class="portlet box" ng-controller="PlotCtrl">
+    <div class="portlet-header">
+        <div class="caption">Scatter plot {{$id}}</div>
+        <div class="tools">
+        	
+            <i tooltip-placement="bottom" uib-tooltip="Expand/Collapse" ng-click="isCollapsed = !isCollapsed" ng-class="{'fa fa-chevron-down': isCollapsed, 'fa fa-chevron-up': !isCollapsed}"></i>
+
+            <i tooltip-placement="bottom" uib-tooltip="Close" class="fa fa-times" close-portlet></i>
+        </div>
+        <div class="tools" ng-hide="isCollapsed">
+        	<div>
+				<span  uib-dropdown on-toggle="toggledX(open)" >
+					<a href id="xAxis" tooltip-placement="bottom" uib-tooltip="X Axis" uib-dropdown-toggle>{{config.axis.x}} <span class="caret" /></a>
+					<ul class="uib-dropdown-menu" role="menu" aria-labelledby="xAxis">
+					    <li ng-repeat="column in columns" role="menuitem"><a ng-click="setXAxis(column)"><i ng-show="column == config.axis.x" class="fa fa-check" ></i><i ng-show="column != config.axis.x" class="fa fa-check icon-invisible" ></i> {{column}}</a></li>
+					</ul>
+				</span>
+				<span uib-dropdown on-toggle="toggledY(open)" >
+					<a href id="yAxis" tooltip-placement="bottom" uib-tooltip="Y Axis" uib-dropdown-toggle>{{config.axis.y}} <span class="caret" /></a>
+					<ul class="uib-dropdown-menu" role="menu" aria-labelledby="yAxis">
+					    <li ng-repeat="column in columns" role="menuitem"><a ng-click="setYAxis(column)"><i ng-show="column == config.axis.y" class="fa fa-check" ></i><i ng-show="column != config.axis.y" class="fa fa-check icon-invisible" ></i> {{column}}</a></li>
+					</ul>
+				</span>
+				<span class="gray-light">&nbsp;|</span>
+				<span uib-dropdown>
+					<span id="mydatasets" uib-dropdown-toggle><i tooltip-placement="bottom" uib-tooltip="Datasets" class="fa fa-database" ></i> <span class="caret" /></span>
+					<ul class="uib-dropdown-menu" role="menu" aria-labelledby="mydatasets">
+					    <li ng-repeat="dataset in datasets" role="menuitem"><a ng-click="toggleDataset(dataset)"><i ng-show="isUsed(dataset)" class="fa fa-check" ></i><i ng-show="isNotUsed(dataset)" class="fa fa-check icon-invisible" ></i> {{dataset.name}}</a></li>
+					</ul>
+				</span>
+				<span class="gray-light">&nbsp;|</span>
+				<i tooltip-placement="bottom" uib-tooltip="Snapshot" class="fa fa-camera" ></i>
+				<i tooltip-placement="bottom" uib-tooltip="Save" class="fa fa-floppy-o" ></i>
+			  	<i tooltip-placement="bottom" uib-tooltip="Zoom" class="fa fa-search" ></i>
+			  	<span class="gray-light">&nbsp;|</span>
+			  	<i tooltip-placement="bottom" uib-tooltip="Pan" class="fa fa-arrows" ></i>
+		      	<i tooltip-placement="bottom" uib-tooltip="Zoom In" class="fa fa-search-plus" ></i>
+		      	<i tooltip-placement="bottom" uib-tooltip="Zoom Out" class="fa fa-search-minus" ></i>
+		      	<span class="gray-light">&nbsp;|</span>
+		      	<i tooltip-placement="bottom" uib-tooltip="Autoscale" class="fa fa-arrows-alt" ng-click="autoscale()" ></i>
+		      	<i tooltip-placement="bottom" uib-tooltip="Refresh" ng-click="refresh()" class="fa fa-refresh"></i>
+		      	<i tooltip-placement="bottom" uib-tooltip="Settings" ng-click="openSettings()" data-target="#modal-config" class="fa fa-cog"></i>
+		      	<span class="gray-light">&nbsp;|</span>
+		    </div>
+		</div>
+    </div>
+    <div class="portlet-body" uib-collapse="isCollapsed">
+    	<div ng-hide="datasetsAvailable">No Datasets Are Avaiable</div>
+        <plotly id="plot-id-{{$id}}" ng-show="datasetsAvailable" data="data" layout="layout" options="options"></plotly>
+    </div>
+</div>

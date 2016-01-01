@@ -1,0 +1,64 @@
+Notes
+
+To do
+----------------------------------------------------------
+Portal / Div Controls
+- Allow the user to resize a div verticaly with a handle
+- Portal Directive?
+- Allow the user to drag and drop a div to reorder
+
+Plotting
+- Get buttons working (zoom, pan, etc)
+- Configuration dialog
+-- Add / Remove Axes
+-- Add / Remove Annotations
+-- Style the axes
+-- Style the Traces
+- Selection based actions
+-- Support selection of 1 or more points
+-- 
+- Styling functions (marker symbol, marker size, marker color, marker opacity, line thickness, line stipple, line color)
+
+Local Storage
+- Save data to local storage
+- Save styling to local storage
+
+Web Services
+- Create python based web services 
+- Save session 
+- Run Algorithm
+- Generate traces?
+
+Target / Object Organization
+- Allow users to assign labels to points. A label is just a field for a new column. For example - Target Type is a label and there is a new column added to all the data called 'Target Type', it is an enumerated column with the user assigning the values. A  user-maintained list of possibles is a good way to provide auto-complete.
+- Allow users to group points. A group is just the addition of a unique-id in a column. Ids can be human readable (e.g. rv-1) or derived from a label using a post processor.
+
+Management / Extension Interface
+- Assign / Upload data curators. A data curator runs after the data is imported into the system. If uploaded then we can use JSONP to get the code on the client or we can execute it on the web services end. This is a good way to introduce the target / object concepts without polluting the plotting engine
+
+Algorithms
+
+
+
+
+Trace Styling
+----------------------------------------------------------
+A function is used to generate the styling for markers: 
+- Opacity
+- Symbol
+- Symbol Size
+- Symbol Color
+Size, Color and Opacity can all be a range scale, with min anx max caps
+Symbol has to be an enumerated set
+There are function definitions for each type. The symbol function is:
+function(datasets, dataset, index) -> Returns symbol
+
+Included functions will choose the symbol based on a field name (for the same index),
+generate a linear color vairant between 2 colors, or even use a color map, users can
+upload new functions.
+
+Extensions:
+
+- Add Columns / Field (calculate the result)
+- Add a button, on click gets all the datasets
+- Add function to select markes

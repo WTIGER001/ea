@@ -1,0 +1,37 @@
+/* Needed for Angular-Bootstrap */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+html, body {
+    height: 100%;
+}
+.container-fluid {
+    height: 100%;
+    overflow-y: auto; // don't show content that exceeds my height 
+}
+.body-film {
+    height: 100%;
+    overflow-y: auto; // a value of 'scroll' will force scrollbars, even if they aren't necessary. This is cleaner.
+    background-color: fadeout(@studio-bar-color, @studio-body-film-trans-delta);
+}
+.block-film {
+    min-height: 100%;
+    overflow-y: hidden; // don't show content that exceeds my height 
+    background-color: fadeout(@studio-bar-color, @studio-block-film-trans-delta);   
+}
+.gray-light {
+    color: #cccccc;
+}
+.icon-invisible {
+    visibility: hidden;
+}
+h5, .h5 {
+    border-bottom: thin solid #777; 
+    color: #777;
+    font-size: 16px;
+}

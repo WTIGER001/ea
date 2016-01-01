@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	
+  <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="styleSheet" href="bower_components/angular-ui-grid/ui-grid.min.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+
+   
+     <!-- bower:css -->
+     <link rel="stylesheet" href="bower_components/spectrum/spectrum.css" />
+     <link rel="stylesheet" href="bower_components/angular-bootstrap-colorpicker/css/colorpicker.css" />
+     <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+     <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css" />
+     <!-- endbower -->
+    
+    <link rel="stylesheet" href="styles/portlet.css" />
+    
+    <link rel="stylesheet" href="styles/main.css">
+ 
+</head>
+<body ng-app="eaApp">
+  <ng-include src="'templates/header.html'" ></ng-include>
+  <div class="container-fluid" >
+    <div ui-view>
+    </div>
+  </div>
+  <ng-include src="'templates/footer.html'" ></ng-include>
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/plotlyjs/plotly.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+  <script src="bower_components/angular-plotly/src/angular-plotly.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <script src="bower_components/papaparse/papaparse.js"></script>
+  <script src="bower_components/angular-papaparse/dist/js/angular-PapaParse.js"></script>
+  <script src="bower_components/spectrum/spectrum.js"></script>
+  <script src="bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.min.js"></script>
+  <script src="bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
+  <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+  <script src="bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js"></script>
+  <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
+  <!-- endbower -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/directives/Portlet.js"></script>
+  <script src="scripts/services/TraceService.js"></script>
+  <script src="scripts/services/projectService.js"></script>
+  <script src="scripts/services/SessionService.js"></script>
+  <script src="scripts/controllers/homeController.js"></script>
+  <script src="scripts/controllers/dataCtrl.js"></script>
+  <script src="scripts/controllers/WorkspaceCtrl.js"></script>
+  <script src="scripts/controllers/PlotCtrl.js"></script>
+
+  <!-- endbuild -->
+</body>
+</html>

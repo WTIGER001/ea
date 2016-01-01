@@ -1,0 +1,44 @@
+{
+  "name": "ea",
+  "authors": [
+    "John Bauer <John.Bauer.iii@gmail.com>"
+  ],
+  "description": "Event Analysis",
+  "main": "app/index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "font-awesome": "~4.5.0",
+    "bootstrap": "~3.3.6",
+    "plotlyjs": "plotly#~0.0.2",
+    "angular-ui-router": "~0.2.15",
+    "angular-ui-grid": "~3.0.7",
+    "angular-touch": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "ng-lodash": "~0.3.0",
+    "angular-plotly": "~0.1.2",
+    "ng-file-upload": "~10.1.14",
+    "papaparse": "papa-parse#~4.1.2",
+    "angular-papaparse": "~1.0.0",
+    "angular-spectrum-colorpicker": "~1.4.2",
+    "angular-bootstrap-colorpicker": "~3.0.22",
+    "angular-bootstrap-switch": "~0.4.1",
+    "angular-ui-switch": "~0.1.1"
+  },
+  "unused": {
+    "bootstrap-material-design": "~0.5.7"
+  }
+}

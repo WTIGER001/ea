@@ -1,0 +1,13 @@
+{
+	"marker" : {
+		"shape"   : { "fieldName" : "object-id" },
+		"color"   : { "fieldName" : "target-id"}, 
+		"size"    : { "fieldName" : "intensity"}, 
+		"opacity" : {}
+	}, 
+	"line" : {
+		"color"   : { "fieldName" : "object-id"}, 
+		"weight"  : { "auto"  : "true"}, 
+		"stipple" : { "value" : "solid"}
+	}
+}

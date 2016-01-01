@@ -1,0 +1,69 @@
+[
+    {
+        "name": "angle",
+        "description": "An angle is the figure formed by two rays sharing a common endpoint, called the vertex of the angle. The magnitude of the angle is the amount of rotation that separates the two rays, and can be measured by considering the length of circular arc swept out when one ray is rotated about the vertex to coincide with the other. Where there is no possibility of confusion, the term \"angle\" is used interchangeably for both the geometric configuration itself and for its angular magnitude (which is simply a numerical quantity).",
+        "units": [
+            {
+                "name": "Radians",
+                "abbr": "r",
+                "value": 1.0
+            },
+            {
+                "name": "Degrees",
+                "abbr": "U+00B0",
+                "value": 57.2958
+            },
+            {
+                "name": "Gradians",
+                "abbr": "grad",
+                "value": 63.66197723
+            }
+        ]
+    },
+    {
+        "name": "distance",
+        "description": "Distance is a numerical description of how far apart objects are. In physics or everyday discussion, distance may refer to a physical length, or an estimation based on other criteria. In mathematics, a distance function or metric is a generalization of the concept of physical distance. A metric is a function that behaves according to a specific set of rules, and provides a concrete way of describing what it means for elements of some space to be \"close to\" or \"far away from\" each other.",
+        "units": [
+            {
+                "name": "Meter",
+                "abbr": "m",
+                "value": 1.0
+            },
+            {
+                "name": "Kilometer",
+                "abbr": "km",
+                "value": 0.001
+            },
+            {
+                "name": "Feet",
+                "abbr": "ft",
+                "value": 3.280839895
+            },
+            {
+                "name": "Kilofeet",
+                "abbr": "kft",
+                "value": 0.00328084
+            },
+            {
+                "name": "Mile",
+                "abbr": "mi",
+                "value": 0.00328084
+            },
+            {
+                "name": "Kilofeet",
+                "abbr": "kft",
+                "value": 0.000621371
+            },
+            {
+                "name": "Nautical Mile",
+                "abbr": "nm",
+                "value": 0.000539957
+            },
+            {
+                "name": "Inch",
+                "abbr": "in",
+                "value": 39.370078
+            }
+        ]
+    }
+]

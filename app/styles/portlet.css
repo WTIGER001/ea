@@ -1,0 +1,509 @@
+.portlet {
+  clear: both;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  padding: 0px;
+}
+.portlet {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  border: 5px solid #e5e5e5;
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+}
+.portlet.box > .portlet-header {
+  margin-bottom: 0;
+  padding: 8px 15px;
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+.portlet > .portlet-header {
+  margin-bottom: 15px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.portlet > .portlet-header:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.portlet > .portlet-header:after {
+  content: "";
+  display: table;
+  line-height: 0;
+  clear: both;
+}
+.portlet > .portlet-header .caption {
+  float: left;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 0;
+}
+.portlet > .portlet-header .caption i {
+  float: left;
+  margin-top: 4px;
+  display: inline-block !important;
+  font-size: 13px;
+  margin-right: 5px;
+  color: #999999;
+}
+.portlet > .portlet-header .actions {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-top: 6px;
+  float: right;
+}
+.portlet > .portlet-header .actions > .btn {
+  padding: 4px 10px;
+  margin-top: -18px;
+}
+.portlet > .portlet-header .actions > .btn.btn-sm {
+  padding: 3px 8px;
+  margin-top: -13px;
+}
+.portlet > .portlet-header .actions > .btn.btn-xs {
+  padding: 1px 5px;
+  margin-top: -13px;
+}
+.portlet > .portlet-header .actions > .btn-group {
+  margin-top: -12px;
+}
+.portlet > .portlet-header .actions > .btn-group > .btn {
+  padding: 4px 10px;
+  margin-top: -1px;
+}
+.portlet > .portlet-header .actions > .btn-group > .btn.btn-sm {
+  padding: 3px 8px;
+  margin-top: -1px;
+}
+.portlet > .portlet-header .actions > .btn-group > .btn.btn-xs {
+  padding: 1px 5px;
+  margin-top: -1px;
+}
+.portlet > .portlet-header .pagination.pagination-sm {
+  float: right;
+  display: inline-block;
+  margin: 0px;
+}
+.portlet > .portlet-header .pagination.pagination-sm li a {
+  padding: 3px 10px;
+}
+.portlet > .portlet-header .tools {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+.portlet > .portlet-header .tools i {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.portlet .portlet-body {
+  background: #FFFFFF;
+  padding: 15px;
+  clear: both;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.portlet .portlet-body.form {
+  padding: 0 !important;
+}
+.portlet.portlet-default > .portlet-header {
+  background: #FFFFFF;
+  color: #999999;
+  border-bottom: 1px solid #f0f2f6;
+}
+.portlet.portlet-default > .portlet-header i {
+  color: #999999;
+}
+.portlet.portlet-default > .portlet-header .btn i {
+  color: #999999;
+}
+.portlet.portlet-primary {
+  border-color: #dc6767;
+}
+.portlet.portlet-primary > .portlet-header {
+  background: #dc6767;
+  color: #ffffff;
+}
+.portlet.portlet-red {
+  border-color: #bf4346;
+}
+.portlet.portlet-red > .portlet-header {
+  background: #bf4346;
+  color: #ffffff;
+}
+.portlet.portlet-orange {
+  border-color: #e9662c;
+}
+.portlet.portlet-orange > .portlet-header {
+  background: #e9662c;
+  color: #ffffff;
+}
+.portlet.portlet-green {
+  border-color: #488c6c;
+}
+.portlet.portlet-green > .portlet-header {
+  background: #488c6c;
+  color: #ffffff;
+}
+.portlet.portlet-yellow {
+  border-color: #f2994b;
+}
+.portlet.portlet-yellow > .portlet-header {
+  background: #f2994b;
+  color: #ffffff;
+}
+.portlet.portlet-blue {
+  border-color: #0a819c;
+}
+.portlet.portlet-blue > .portlet-header {
+  background: #0a819c;
+  color: #ffffff;
+}
+.portlet.portlet-violet {
+  border-color: #9351ad;
+}
+.portlet.portlet-violet > .portlet-header {
+  background: #9351ad;
+  color: #ffffff;
+}
+.portlet.portlet-pink {
+  border-color: #bf3773;
+}
+.portlet.portlet-pink > .portlet-header {
+  background: #bf3773;
+  color: #ffffff;
+}
+.portlet.portlet-grey {
+  border-color: #4b5d67;
+}
+.portlet.portlet-grey > .portlet-header {
+  background: #4b5d67;
+  color: #ffffff;
+}
+.portlet.portlet-dark {
+  border-color: #594857;
+}
+.portlet.portlet-dark > .portlet-header {
+  background: #594857;
+  color: #ffffff;
+}
+.portlet {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.portlet.color {
+  padding: 0;
+}
+.portlet.color .portlet-header {
+  margin-bottom: 0;
+  border: 0px;
+}
+.portlet.color .portlet-header .btn.btn-white i {
+  color: #999999;
+}
+.portlet.color .portlet-body {
+  background: transparent;
+}
+.portlet.color.portlet-default {
+  background: #FFFFFF !important;
+}
+.portlet.color.portlet-default > .portlet-header {
+  color: #999999;
+  border: 0;
+}
+.portlet.color.portlet-default > .portlet-header > .caption i {
+  color: #999999;
+  border: 0;
+}
+.portlet.color.portlet-default > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-default > .portlet-body {
+  color: #999999;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.portlet.color.portlet-primary {
+  background: #dc6767 !important;
+}
+.portlet.color.portlet-primary > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-primary > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-primary > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-primary > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.brand-primary {
+  background: #dc6767 !important;
+}
+.portlet.color.portlet-red {
+  background: #bf4346 !important;
+}
+.portlet.color.portlet-red > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-red > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-red > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-red > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-red {
+  background: #bf4346 !important;
+}
+.portlet.color.portlet-orange {
+  background: #e9662c !important;
+}
+.portlet.color.portlet-orange > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-orange > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-orange > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-orange > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-orange {
+  background: #e9662c !important;
+}
+.portlet.color.portlet-green {
+  background: #488c6c !important;
+}
+.portlet.color.portlet-green > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-green > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-green > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-green > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-green {
+  background: #488c6c !important;
+}
+.portlet.color.portlet-yellow {
+  background: #f2994b !important;
+}
+.portlet.color.portlet-yellow > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-yellow > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-yellow > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-yellow > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-yellow {
+  background: #f2994b !important;
+}
+.portlet.color.portlet-blue {
+  background: #0a819c !important;
+}
+.portlet.color.portlet-blue > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-blue > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-blue > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-blue > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-blue {
+  background: #0a819c !important;
+}
+.portlet.color.portlet-violet {
+  background: #9351ad !important;
+}
+.portlet.color.portlet-violet > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-violet > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-violet > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-violet > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-violet {
+  background: #9351ad !important;
+}
+.portlet.color.portlet-pink {
+  background: #bf3773 !important;
+}
+.portlet.color.portlet-pink > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-pink > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-pink > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-pink > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-pink {
+  background: #bf3773 !important;
+}
+.portlet.color.portlet-grey {
+  background: #4b5d67 !important;
+}
+.portlet.color.portlet-grey > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-grey > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-grey > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-grey > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-grey {
+  background: #4b5d67 !important;
+}
+.portlet.color.portlet-dark {
+  background: #594857 !important;
+}
+.portlet.color.portlet-dark > .portlet-header {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-dark > .portlet-header > .caption i {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color.portlet-dark > .portlet-header > .tools {
+  border: 0px;
+}
+.portlet.color.portlet-dark > .portlet-body {
+  color: #ffffff;
+  border: 0;
+}
+.portlet.color > .portlet-body.color-dark {
+  background: #594857 !important;
+}
+.portlet-tabs > .nav-tabs {
+  position: relative;
+  top: -44px;
+  margin-right: 15px;
+  border-bottom: none;
+  padding: 4px 0px;
+  overflow: hidden;
+}
+.portlet-tabs > .nav-tabs > li {
+  float: right;
+  margin-left: 1px;
+}
+.portlet-tabs > .nav-tabs > li:last-child a {
+  border-right: 0;
+}
+.portlet-tabs > .nav-tabs > li.active {
+  color: #dc6767;
+  border-top-color: transparent;
+}
+.portlet-tabs > .nav-tabs > li.active a {
+  margin-bottom: 0px;
+  border-bottom: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: 0;
+  border-right: 0;
+  background-color: none !important;
+  border-top-color: transparent !important;
+  color: #999999;
+  cursor: default;
+}
+.portlet-tabs > .nav-tabs > li.active a:hover {
+  background-color: #fff !important;
+}
+.portlet-tabs > .nav-tabs > li a {
+  color: #fff;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: 0;
+  border-right: 0;
+}
+.portlet-tabs > .nav-tabs > li a:hover {
+  color: #999999;
+  margin-bottom: 0;
+  border-bottom-color: transparent;
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: none !important;
+  border-top-color: transparent;
+}
+.portlet-tabs > .tab-content {
+  padding: 15px !important;
+  margin: 0px;
+  margin-top: -50px !important;
+  border: 0;
+}
+.portlet.tabbable .portlet-body {
+  padding: 0px !important;
+}

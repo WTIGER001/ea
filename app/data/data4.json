@@ -1,0 +1,21 @@
+{
+	"source" : "file", 
+	"name" : "",
+	"id" : "122352345",
+	"data" : {
+		"time" 		: { "unit-type" : "time", "unit" : "seconds", "type": "source", "values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"intensity" : { "unit-type" : "intensity", "units" : "kw", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"latitude" 	: { "unit-type" : "latitude", "units" : "degrees", "type": "calculated","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"longitude" : { "unit-type" : "longitude", "units" : "degrees", "type": "calculated","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"altitude" 	: { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"azimuth" 	: { "unit-type" : "angle", "units" : "degrees", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"elevation" : { "unit-type" : "angle", "units" : "degrees", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"eci_pos_x" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"eci_pos_y" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"eci_pos_z" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"ecf_pos_x" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"ecf_pos_y" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"ecf_pos_z" : { "unit-type" : "distance", "units" : "meters", "type": "source","values" :  [1,2,3,4,5,6,7,8,9,10]},
+		"sensor" 	: { "values" :  ["AB","AB","AB","AB","AB","AB","AB","AB","AB","AB"]}
+	}
+}

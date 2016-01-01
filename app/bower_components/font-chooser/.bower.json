@@ -1,0 +1,14 @@
+{
+  "name": "font-chooser",
+  "homepage": "https://github.com/CD1212/jQuery-Font-Chooser",
+  "_release": "6d6c1d5a32",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6d6c1d5a3274002058f5e3218fc453c03c7f34cc"
+  },
+  "_source": "git://github.com/CD1212/jQuery-Font-Chooser.git",
+  "_target": "*",
+  "_originalSource": "font-chooser",
+  "_direct": true
+}

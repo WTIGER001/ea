@@ -1,0 +1,93 @@
+
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="$dismiss()">×</button>
+	<h4  class="modal-title">Plot Options</h4>
+</div>
+<div class="modal-body">
+	<uib-tabset >
+    <uib-tab heading="Overview">
+    	<div class="tab-content">
+				<form class="form-horizontal">
+					<h5>General</h5>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="title" placeholder="Plot Title" ng-model="layoutCopy.title">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">Font</label>
+				    <div class="col-sm-10">
+				      <select  id="title-font-family" class="form-control" ng-model="layoutCopy.titlefont.family">
+					    	<option ng-repeat="font in fonts">{{font}}</option>
+					    </select>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="title-font-size" class="col-sm-2 control-label">Size</label>
+				    <div class="col-sm-4">
+				      <input id="title-font-size" class="form-control" type="number" ng-model="layoutCopy.titlefont.size" name="size" min="6" max="50" value="{{layoutCopy.titlefont.size}}" min="6" max="40"/>
+				    </div>
+				    <label for="title-font-color" class="col-sm-2 control-label">Color</label>
+				    <div class="col-sm-4">
+				      <input id="title-font-color" style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.titlefont.color" name="color" value="layoutCopy.titlefont.color"/>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Paper</label>
+				    <div class="col-sm-4">
+				      <input id="paper_bgcolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.paper_bgcolor" name="paper_bgcolor" value="layoutCopy.paper_bgcolor"/>
+				    </div>
+				    <label for="inputEmail3" class="col-sm-2 control-label">Plot</label>
+				    <div class="col-sm-4">
+				      <input id="plot_bgcolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.plot_bgcolor" name="plot_bgcolor" value="layoutCopy.plot_bgcolor"/>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label style="text-align: center" for="margin-l" class="col-sm-offset-2 col-sm-2 control-label">Left</label>
+				    <label style="text-align: center" for="margin-r" class="col-sm-2 control-label">Right</label>
+				    <label style="text-align: center" for="margin-t" class="col-sm-2 control-label">Bottom</label>
+				    <label style="text-align: center" for="margin-b" class="col-sm-2 control-label">Top</label>
+				    <label style="text-align: center" for="margin-pad" class="col-sm-2 control-label">Pad</label>
+
+				    <label class="col-sm-2 control-label">Margin</label>
+				    <div class="col-sm-2">
+				      <input id="margin-l" class="form-control" type="number" ng-model="layoutCopy.margin.l" name="size" min="0" max="500" value="{{layoutCopy.margin.l}}"/>
+				    </div>
+				   <div class="col-sm-2">
+				      <input id="margin-r" class="form-control" type="number" ng-model="layoutCopy.margin.r" name="size" min="0" max="500" value="{{layoutCopy.margin.r}}"/>
+				    </div>
+				    <div class="col-sm-2">
+				      <input id="margin-t" class="form-control" type="number" ng-model="layoutCopy.margin.t" name="size" min="0" max="500" value="{{layoutCopy.margin.t}}"/>
+				    </div>
+				    <div class="col-sm-2">
+				      <input id="margin-b" class="form-control" type="number" ng-model="layoutCopy.margin.b" name="size" min="0" max="500" value="{{layoutCopy.margin.b}}"/>
+				    </div>
+				    <div class="col-sm-2">
+				      <input id="margin-pad" class="form-control" type="number" ng-model="layoutCopy.margin.pad" name="size" min="0" max="500" value="{{layoutCopy.margin.pad}}"/>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		</uib-tab>
+		<uib-tab heading="Legend">
+			
+		</uib-tab>
+		<uib-tab heading="Axes">
+			<div class="tab-content">
+				<div class="btn-group" class="col-sm-6">
+		      <label ng-repeat="(axisName, a) in axes" class="btn btn-default" ng-model="axis" uib-btn-radio="{{a}}">{{axisName}}</label>
+		  	</div>
+				<ng-include ng-show="axis!=undefined" ng-model="axis" src="'/templates/plot/axes.html'"></ng-include>
+
+			</div>
+		</uib-tab>
+		<uib-tab heading="Data">
+
+		</uib-tab>
+  </uib-tabset>
+</div>
+<div class="modal-footer">
+	<button type="button" ng-click="$dismiss()" class="btn btn-default" data-dismiss="modal">Close</button>
+	<button type="button" ng-click="$close(layoutCopy)" class="btn btn-primary">Save changes</button>
+</div>
