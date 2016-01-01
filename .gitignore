@@ -38,3 +38,4 @@ node_modules
 /.tmp
 /.sass-cache
 /bower_components
+/app/bower_components

@@ -15,6 +15,7 @@ angular
       }
     });
 
+
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {

@@ -23,7 +23,8 @@ angular
     'ngPapaParse', 
     'angularSpectrumColorpicker', 
     'frapontillo.bootstrap-switch', 
-    'uiSwitch'
+    'uiSwitch',
+    'colorpicker.module'
   ])
   .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise("/");
