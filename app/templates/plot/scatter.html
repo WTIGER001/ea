@@ -1,0 +1,150 @@
+<!-- Scatter Chart and ScatterGL -->
+<h5>General</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.visible" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+
+	  <label class="col-sm-2 control-label">Legend</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.showlegend" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+
+	  <label class="col-sm-2 control-label">Opacity</label>
+		<div class="col-sm-2">
+	  	<input class="form-control" type="number" ng-model="trace.opacity" min="0.00" max="1.0" step="0.01" />
+	  </div>
+  </div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Source</label>
+		<div class="col-sm-4">
+			<select class="form-control" ng-model="trace.data.dataset">
+				<option ng-repeat="d in datasets">{{d.name}}</option>
+			</select>
+	  </div>
+
+		<div class="col-sm-4 ">
+			<button><i tooltip-placement="bottom" uib-tooltip="New Dataset" class="fa fa-plus"></i></button>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">X data</label>
+		<div class="col-sm-4">
+			<select class="form-control" ng-model="trace.data.xsource">
+				<option ng-repeat="column in trace.data.columns">{{column}}</option>
+			</select>
+	  </div>
+
+		<div class="col-sm-1 ">
+			<button><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></i></button>
+	  </div>
+
+	  <label class="col-sm-1 control-label">Axis</label>
+		<div class="col-sm-3">
+			<select class="form-control" ng-model="trace.xaxis">
+        <option>paper</option>
+        <option ng-repeat="a in axesNames | filter:'x':startsWith">{{a}}</option>
+      </select>
+	  </div>
+
+	  <div class="col-sm-1 ">
+			<button><i tooltip-placement="bottom" uib-tooltip="New Axis" class="fa fa-plus"></i></button>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Y data</label>
+		<div class="col-sm-5 input-group">
+			<select class="form-control selectpicker" ng-model="trace.data.ysource">
+				<option ng-repeat="column in trace.data.columns">{{column}}</option>
+			</select>
+			<span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></button>
+      </span>
+	  </div>
+
+	  <label class="col-sm-1 control-label">Axis</label>
+		<div class="col-sm-4  input-group">
+			<select class="form-control selectpicker" ng-model="trace.yaxis">
+        <option ng-repeat="a in axesNames | filter:'y':startsWith">{{a}}</option>
+      </select>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Axis" class="fa fa-plus"></button>
+      </span>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Fill</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'none'">None</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tozeroy'">To Zero Y</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tonexty'">To Next Y</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tozerox'">To Zero X</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tonextx'">To Next X</label>
+  	</div>
+  </div>
+</form>
+
+<h5>Marker</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.data.showmarkers" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Symbol Mode</label>
+	  <div class="btn-group col-sm-3">
+      <label class="btn btn-default" ng-model="axis.data.marker.symbolmode" uib-btn-radio="'fixed'">Fixed</label>
+      <label class="btn btn-default" ng-model="axis.data.marker.symbolmode" uib-btn-radio="'calc'">Calculated</label>
+	  </div>
+
+	  <!-- Fixed Symbols -->
+	  <div ng-if="angular.isUndefined(axis.data.marker.symbolmode) or axis.data.marker.symbolmode == 'fixed'">
+	  	<label class="col-sm-2 control-label">Symbol</label>
+	  	<div class="col-sm-2">
+	  		<select ng-model="axis.marker.symbol" >
+
+	  		</select>
+	  	</div>
+	  </div>
+
+	  <!-- Calculated Symbols -->
+	  <div ng-if="axis.data.marker.symbolmode == 'calc'">
+	  	<label class="col-sm-2 control-label">Symbol</label>
+	  	<div class="col-sm-2 input-group">
+		  	<input type="text" editable="false" class="form-control">
+			  <div class="input-group-btn">
+			    <button ng-click="selectSymbolFunction()" type="button" class="btn btn-default"><i tooltip-placement="bottom" uib-tooltip="New Axis" class="fa fa-ellipsis-h"></i></button>
+			  </div>
+	  	</div>
+	  </div>
+
+
+  </div>
+</form>
+
+<h5>Line</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.data.showline" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+</form>
+
+<h5>Text</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show Always</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.data.showtext" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+</form>
