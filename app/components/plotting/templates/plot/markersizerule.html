@@ -1,0 +1,23 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="$dismiss()">×</button>
+	<h4 class="modal-title">Marker Size Rules</h4>
+</div>
+<div class="modal-body">
+	<uib-accordion close-others="true">
+		<div ng-repeat="ext in extensions">
+			<uib-accordion-group >
+				<uib-accordion-heading >
+		        	<span ng-click="params['selected']=ext.id">{{ext.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+		        	</span>
+		     </uib-accordion-heading>
+				<div>
+					<ng-include src="'/templates/extensions/autoform.html'" scope="" onload=""></ng-include>
+				</div>
+			</uib-accordion-group>
+	 	</div>
+	 </uib-accordion>
+</div>
+<div class="modal-footer">
+	<button type="button" ng-click="$dismiss()" class="btn btn-default" data-dismiss="modal">Close</button>
+	<button type="button" ng-click="$close(params)" class="btn btn-primary">Save changes</button>
+</div>

@@ -1,0 +1,61 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="$dismiss()">×</button>
+	<h4  class="modal-title">Select Plot Type</h4>
+</div>
+<div class="modal-body">
+	<div class="list-group selection-container">
+		<a class="list-group-item selectable-tile"  ng-class="vm.selection=='scatter'?'active':''" ng-click="vm.selection='scatter'">
+			<h4 class="list-group-item-heading">Scatter</h4>
+			<img class="list-group-item-text" src="components/plotting/images/scatter.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='scattergl'?'active':''" ng-click="vm.selection='scattergl'">
+			<h4 class="list-group-item-heading">Scatter GL</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/scatter.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='area'?'active':''" ng-click="vm.selection='area'">
+			<h4 class="list-group-item-heading">Area</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/area.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='areagl'?'active':''" ng-click="vm.selection='areagl'">
+			<h4 class="list-group-item-heading">Area GL</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/area.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='pie'?'active':''" ng-click="vm.selection='pie'">
+			<h4 class="list-group-item-heading">Bar Chart</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/pie-chart.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='bar'?'active':''" ng-click="vm.selection='bar'">
+			<h4 class="list-group-item-heading">Bar Chart</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/bar.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='contour'?'active':''" ng-click="vm.selection='contour'">
+			<h4 class="list-group-item-heading">Contour</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/contour.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='scatter3d'?'active':''" ng-click="vm.selection='scatter3d'">
+			<h4 class="list-group-item-heading">Scatter 3D</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/3d-line.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='surface'?'active':''" ng-click="vm.selection='surface'">
+			<h4 class="list-group-item-heading">Surface</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/3d-surface.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='polar'?'active':''" ng-click="vm.selection='polar'">
+			<h4 class="list-group-item-heading">Polar</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/polar-scatter.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='polargl'?'active':''" ng-click="vm.selection='polargl'">
+			<h4 class="list-group-item-heading">Polar</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/polar-scatter.jpg" />
+		</a>
+		<a class="list-group-item selectable-tile" ng-class="vm.selection=='polararea'?'active':''" ng-click="vm.selection='polararea'">
+			<h4 class="list-group-item-heading">Polar Area</h4>
+    	<img class="list-group-item-text" src="components/plotting/images/wind-rose.jpg" />
+		</a>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" ng-click="$dismiss()" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	<button type="button" ng-click="$close(vm)" class="btn btn-success" ng-disabled="vm.selection === undefined">Accept</button>
+</div>
+

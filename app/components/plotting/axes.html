@@ -1,0 +1,42 @@
+<!-- Lists all the axes created in a single dialog. -->
+<h6>&nbsp;</h6>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="axes-title" class="col-sm-1 control-label">Axis</label>
+		<div class="btn-group" class="col-sm-4">
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x1</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x2</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x3</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x4</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x5</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">x6</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="axes-title" class="col-sm-1 control-label">Axis</label>
+		<div class="btn-group" class="col-sm-4">
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y1</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y2</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y3</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y4</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y5</label>
+			<label class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">y6</label>
+		</div>
+	</div>
+
+		  <label ng-click="updateAxis()" ng-repeat="name in axesNames | filter:'x':startsWith" 
+		  class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">{{name}}</label>
+		</div>
+
+
+
+		<div class="btn-group" class="col-sm-4">
+		  <label ng-click="updateAxis()" ng-repeat="name in axesNames" 
+		  class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">{{name}}</label>
+		</div>
+		<div class="btn-group" class="col-sm-4">
+		  <button ng-click="addAxis()" class="btn btn-default">Add Axis</button>
+		  <button ng-click="removeAxis()" class="btn btn-default">Remove Axis</button>
+		</div>
+	</div>
+</form>

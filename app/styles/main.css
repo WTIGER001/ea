@@ -35,3 +35,38 @@ h5, .h5 {
     color: #777;
     font-size: 16px;
 }
+div.divMasterDetailWrapper
+{
+  width: 100%;
+  padding: 3px;
+}
+div.divMasterView
+{
+  width: 300px;
+  margin-right: 5px;
+  overflow-y: auto;
+  float: left;
+  border-right-width: 2px;
+  border-right-color: #CCC; 
+}
+div.divDetailView
+{
+  padding: 0;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.modal-lgwide {
+    width: 1400px;
+}
+.selection-container
+{
+  overflow: hidden
+}
+.selectable-tile
+{
+  float: left;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  margin: 5px;
+}

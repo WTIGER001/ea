@@ -1,0 +1,100 @@
+<!-- Legend Tab -->
+&nbsp;
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+			<input bs-switch  ng-model="layoutCopy.showlegend" type="checkbox" switch-on-text="Yes" switch-off-text="No" >
+	  </div>
+
+    <label for="axes-type" class="col-sm-2 control-label" tooltip-placement="left" uib-tooltip="Sets the format of this axis.">Order</label>
+    <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="layoutCopy.legend.traceorder" uib-btn-radio="'normal'">Normal</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.traceorder" uib-btn-radio="'reversed'">Reversed</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Background</label>
+    <div class="col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.legend.bgcolor"/>
+    </div>
+
+    <label for="axes-type" class="col-sm-2 control-label">Border</label>
+    <div class="btn-group col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.legend.bordercolor"/>
+    </div>
+
+    <label for="axes-type" class="col-sm-2 control-label">Width</label>
+    <div class="btn-group col-sm-2">
+      <input class="form-control" type="number" ng-model="layoutCopy.legend.borderwidth" min="0" max="50"  />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Font</label>
+    <div class="col-sm-4">
+      <select  class="form-control" ng-model="layoutCopy.legend.font.family">
+	    	<option ng-repeat="font in fonts">{{font}}</option>
+	    </select>
+    </div>
+    <label class="col-sm-1 control-label">Size</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="layoutCopy.legend.font.size" min="1" max="50" />
+    </div>
+    <label class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="layoutCopy.legend.font.color"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-1 control-label">X</label>
+    <label class="col-sm-1 control-label">Position</label>
+
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="layoutCopy.legend.x" min="0" />
+    </div>
+
+    <label class="col-sm-1 control-label">Reference</label>
+    <div class="col-sm-2">
+      <select class="form-control" ng-model="legend.xref">
+        <option value='paper'>Paper</option>
+        <option ng-repeat="a in axesNames | filter:'x':startsWith">{{a}}</option>
+      </select>
+    </div>
+
+    <label class="col-sm-1 control-label">Anchor</label>
+    <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="layoutCopy.legend.xanchor" uib-btn-radio="'auto'">Auto</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.xanchor" uib-btn-radio="'left'">Left</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.xanchor" uib-btn-radio="'center'">Center</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.xanchor" uib-btn-radio="'right'">Right</label>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-1 control-label">Y</label>
+    <label class="col-sm-1 control-label">Position</label>
+
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="layoutCopy.legend.y" min="0" />
+    </div>
+
+    <label class="col-sm-1 control-label">Reference</label>
+    <div class="col-sm-2">
+      <select class="form-control" ng-model="legend.yref">
+        <option>paper</option>
+        <option ng-repeat="a in axesNames | filter:'y':startsWith">{{a}}</option>
+      </select>
+    </div>
+
+    <label class="col-sm-1 control-label">Anchor</label>
+    <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="layoutCopy.legend.yanchor" uib-btn-radio="'auto'">Auto</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.yanchor" uib-btn-radio="'bottom'">Bottom</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.yanchor" uib-btn-radio="'middle'">Middle</label>
+      <label class="btn btn-default" ng-model="layoutCopy.legend.yanchor" uib-btn-radio="'top'">Top</label>
+    </div>
+  </div>
+
+</form>

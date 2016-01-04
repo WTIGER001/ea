@@ -1,0 +1,276 @@
+
+<!-- List all the axis that have been created -->
+<h6>&nbsp;</h6>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="axes-title" class="col-sm-1 control-label">Axis</label>
+		<div class="btn-group" class="col-sm-4">
+		  <label ng-click="updateAxis()" ng-repeat="name in axesNames" 
+		  class="btn btn-default" ng-model="axisName[0]" uib-btn-radio="name">{{name}}</label>
+		</div>
+		<div class="btn-group" class="col-sm-4">
+		  <button ng-click="addAxis()" class="btn btn-default">Add Axis</button>
+		  <button ng-click="removeAxis()" class="btn btn-default">Remove Axis</button>
+		</div>
+	</div>
+</form>
+
+<!-- Axes Tab -->
+<h5>General</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="axes-title" class="col-sm-2 control-label">Title</label>
+		<div class="col-sm-4">
+			<input id="axis_title" type="text" ng-model="axis.title" class="form-control" placeholder="Axis Title"></input>
+	  </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Font</label>
+    <div class="col-sm-4">
+      <select  class="form-control" ng-model="axis.titlefont.family">
+	    	<option ng-repeat="font in fonts">{{font}}</option>
+	    </select>
+    </div>
+    <label class="col-sm-1 control-label">Size</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="axis.titlefont.size" name="size" min="6" max="50" value="{{axis.titlefont.size}}" min="6" max="40"/>
+    </div>
+    <label class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.titlefont.color" name="color" value="axis.titlefont.color"/>
+    </div>
+  </div>
+  <div class="form-group">
+		<label for="axes-type" class="col-sm-2 control-label" tooltip-placement="left" uib-tooltip="Sets the format of this axis.">Type</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'linear'">Linear</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'log'">Log</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'date'">Date</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'category'">Category</label>
+  	</div>
+  </div>
+</form>
+
+<h5>Range</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="axes-auto" class="col-sm-2 control-label" tooltip-placement="left" uib-tooltip="Toggle whether or not the range of this axis is automatically picked. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this axis can respond to adjustments made by the user automatically. If 'autorange' is set to 'reversed', then this axis is drawn in reverse, e.g. in a 2D plot, from right to left instead of from left to right (the default behavior)." >Auto Range</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.autorange" uib-btn-radio="true">True</label>
+      <label class="btn btn-default" ng-model="axis.autorange" uib-btn-radio="false">False</label>
+      <label class="btn btn-default" ng-model="axis.autorange" uib-btn-radio="'reversed'">Reversed</label>
+  	</div>
+
+		<label for="axes-title" class="col-sm-1 control-label" tooltip-placement="left" uib-tooltip="Choose between automated axis generation modes: 'Normal' (the default) sets the axis range in relation to the extrema in the data object, 'To Zero' extends the axes to x=0 no matter the data plotted and 'Non Negative' sets a non-negative range no matter the data plotted." >Mode</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'normal'">Normal</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tozero'">To Zero</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'nonnegative'">Non Negative</label>
+  	</div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Range</label>
+		<label class="col-sm-1 control-label">Start</label>
+		<div class="btn-group col-sm-3">
+      <input id="range0" class="form-control" type="text" ng-model="axis.range[0]" name="size"/>
+  	</div>
+  	<label class="col-sm-1 control-label">End</label>
+		<div class="btn-group col-sm-3">
+      <input id="range1" class="form-control" type="text" ng-model="axis.range[1]" name="size"/>
+  	</div>
+  </div>
+</form>
+
+<h5>Formatting</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="showbackground" class="col-sm-2 control-label">Background</label>
+		<div class="col-sm-2">
+	  	<input id="showbackground" bs-switch  ng-model="axis.showbackground" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+		<label for="backgroundcolor" class="col-sm-offset-4 col-sm-2 control-label">Color</label>
+    <div class="col-sm-2">
+      <input id="backgroundcolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.backgroundcolor"  value="axis.backgroundcolor"/>
+    </div>
+  </div>
+  <div class="form-group">
+		<label for="showgrid" class="col-sm-2 control-label">Grid</label>
+		<div class="col-sm-2">
+	  	<input id="showgrid"  bs-switch  ng-model="axis.showgrid" type="checkbox" switch-on-text="Yes" switch-off-text="No">
+	  </div>
+
+	  <label for="gridwidth" class="col-sm-offset-2 col-sm-1 control-label">Width</label>
+	  <div class="col-sm-2">
+      <input id="gridwidth" class="form-control" type="number" ng-model="axis.gridwidth" name="size"  value="{{axis.gridwidth}}" min="0" />
+    </div>
+
+		<label for="gridcolor" class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input id="gridcolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.gridcolor"  value="axis.gridcolor"/>
+    </div>
+    
+  </div>
+  <div class="form-group">
+		<label for="zeroline" class="col-sm-2 control-label">Zero Line</label>
+		<div class="col-sm-2">
+	  	<input id="zeroline"  bs-switch  ng-model="axis.zeroline" type="checkbox" switch-on-text="Yes" switch-off-text="No">
+	  </div>
+
+    <label for="zerolinewidth" class="col-sm-offset-2 col-sm-1 control-label">Width</label>
+    <div class="col-sm-2">
+      <input id="zerolinewidth" class="form-control" type="number" ng-model="axis.zerolinewidth" name="size"  value="{{axis.zerolinewidth}}" min="0" />
+    </div>
+
+		<label for="zerolinecolor" class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input id="zerolinecolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.zerolinecolor"  value="axis.zerolinecolor"/>
+    </div>
+  </div>
+  <div class="form-group">
+		<label for="showline" class="col-sm-2 control-label">Line</label>
+		<div class="col-sm-2">
+	  	<input id="showline"  bs-switch  ng-model="axis.showline" type="checkbox" switch-on-text="Yes" switch-off-text="No">
+	  </div>
+	  
+	  <label for="linewidth" class="col-sm-offset-2 col-sm-1 control-label">Width</label>
+    <div class="col-sm-2">
+      <input id="linewidth" class="form-control" type="number" ng-model="axis.linewidth" name="size"  value="{{axis.linewidth}}" min="0" />
+    </div>
+
+		<label for="linecolor" class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input id="linecolor" style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.linecolor"  value="axis.linecolor"/>
+    </div>
+  </div>
+  <div class="form-group">
+		<label for="showexponent" class="col-sm-2 control-label">Exponent</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'all'">All</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'first'">First</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'last'">Last</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'none'">None</label>
+  	</div>
+		<label for="exponentformat" class="col-sm-1 control-label">Exponent</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'none'">None</label>
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'e'">e</label>
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'E'">E</label>
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'power'">Power</label>
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'SI'">SI</label>
+      <label class="btn btn-default" ng-model="axis.exponentformat" uib-btn-radio="'B'">B</label>
+  	</div>
+  </div>
+  <div class="form-group">
+		<label for="anchor" class="col-sm-2 control-label">Anchor</label>
+		<div class="btn-group col-sm-4">
+      
+  	</div>
+		<label for="overlaying" class="col-sm-1 control-label">Overlaying</label>
+		<div class="btn-group col-sm-4">
+      
+  	</div>
+  </div>
+  <div class="form-group">
+		<label for="side" class="col-sm-2 control-label">Side</label>
+		<div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.side" uib-btn-radio="'left'">Left</label>
+      <label class="btn btn-default" ng-model="axis.side" uib-btn-radio="'right'">Right</label>
+
+  	</div>
+		<label for="position" class="col-sm-1 control-label">Position</label>
+		<div class="col-sm-4">
+      <input id="position" class="form-control" type="number" ng-model="axis.position" name="size"  value="{{axis.position}}" min="0" step="0.01"/>
+  	</div>
+  </div>
+  <div class="form-group">
+		<label for="mirror" class="col-sm-2 control-label">Mirror</label>
+		<div class="btn-group col-sm-6">
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="true">True</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="false">False</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'ticks'">Ticks</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'all'">All</label>
+      <label class="btn btn-default" ng-model="axis.showexponent" uib-btn-radio="'allticks'">All Ticks</label>
+  	</div>
+  </div>
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Domain</label>
+		<label class="col-sm-1 control-label">Start</label>
+		<div class="btn-group col-sm-3">
+      <input id="domain0" class="form-control" type="number" ng-model="axis.domain[0]" name="size"  value="{{axis.domain[0]}}" min="0" step="0.01"/>
+  	</div>
+  	<label class="col-sm-1 control-label">End</label>
+		<div class="btn-group col-sm-3">
+      <input id="domain1" class="form-control" type="number" ng-model="axis.domain[1]" name="size"  value="{{axis.domain[1]}}" min="0" step="0.01"/>
+  	</div>
+  </div>
+</form>
+
+<h5>Ticks</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+    <label for="ticks" class="col-sm-2 control-label"  >Ticks</label>
+    
+    <div class="btn-group col-sm-4">
+      <label id="ticks" class="btn btn-default" ng-model="axis.ticks" uib-btn-radio="''">None</label>
+      <label            class="btn btn-default" ng-model="axis.ticks" uib-btn-radio="'inside'">Inside</label>
+      <label            class="btn btn-default" ng-model="axis.ticks" uib-btn-radio="'outside'">Outside</label>
+  	</div>
+  	<label for="autotick" class="col-sm-1 control-label" tooltip-placement="left" uib-tooltip="Toggle whether or not the axis ticks parameters are picked automatically. Once 'auto' is set to false, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object.">Auto</label>
+  	<div class="btn-group col-sm-2">
+	  	<input id="autotick" class="col-sm-2" bs-switch  ng-model="axis.autotick" type="checkbox" switch-on-text="Yes" switch-off-text="No">
+	  </div>
+	  <label for="showticklabels" class="col-sm-1 control-label">Labels</label>
+    <div class="btn-group col-sm-2">
+	  	<input id="showticklabels" class="col-sm-2" bs-switch  ng-model="axis.showticklabels" type="checkbox" switch-on-text="Yes" switch-off-text="No" tooltip-placement="bottom" uib-tooltip="Toggle whether or not the axis ticks will feature tick labels.">
+	  </div>
+ </div>
+ <div class="form-group">
+    <label for="nticks" class="col-sm-2 control-label">Number</label>
+    <div class="col-sm-4">
+      <input id="nticks" class="form-control" type="number" ng-model="axis.nticks" name="size"  value="{{axis.nticks}}" min="0" />
+    </div>
+    <label class="col-sm-1 control-label">First</label>
+    <div class="col-sm-2">
+      <input  class="form-control" type="number" ng-model="axis.tick0" name="size"  value="{{axis.tick0}}" min="0" />
+    </div>
+    <label class="col-sm-1 control-label">Distance</label>
+    <div class="col-sm-2">
+      <input  class="form-control" type="number" ng-model="axis.dtick" name="size"  value="{{axis.dtick}}" min="0" />
+    </div>
+ </div>
+ <div class="form-group">
+    <label class="col-sm-2 control-label">Font</label>
+    <div class="col-sm-4">
+      <select  class="form-control" ng-model="axis.tickfont.family">
+	    	<option ng-repeat="font in fonts">{{font}}</option>
+	    </select>
+    </div>
+    <label class="col-sm-1 control-label">Size</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="axis.tickfont.size" name="size" min="6" max="50" value="{{axis.tickfont.size}}" min="6" max="40"/>
+    </div>
+    <label class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="axis.tickfont.color" name="color" value="axis.tickfont.color"/>
+    </div>
+  </div>
+</form>
+
+<h5>Spikes</h5>
+<form class="form-horizontal">
+	 <div class="form-group">
+    <label class="col-sm-2 control-label">Show</label>
+    <div class="col-sm-2">
+      <input id="showspikes" class="col-sm-2" bs-switch  ng-model="axis.showspikes" type="checkbox" switch-on-text="Yes" switch-off-text="No" >
+    </div>
+    <label class="col-sm-1 control-label">Sides</label>
+    <div class="col-sm-2">
+      <input id="spikesides" class="col-sm-2" bs-switch  ng-model="axis.spikesides" type="checkbox" switch-on-text="Yes" switch-off-text="No" >
+    </div>
+    <label class="col-sm-1 control-label">Thickness</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="axis.spikethickness" name="size" min="0"/>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,356 @@
+<!-- Scatter Chart and ScatterGL -->
+<div>
+<h5>General</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.visible" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+
+	  <label class="col-sm-2 control-label">Legend</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.showlegend" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+
+	  <label class="col-sm-2 control-label">Opacity</label>
+		<div class="col-sm-2">
+	  	<input class="form-control" type="number" ng-model="trace.opacity" min="0" max="1" step="0.01" />
+	  </div>
+  </div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Source</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.data.dataset" ng-options="d.name for d in datasets">
+				</select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Dataset" class="fa fa-plus"></i></button>
+	      </span>
+    	</div>
+	  </div>
+  </div>
+
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<input class="form-control" type="text" ng-model="trace.name">
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="Generate Name" class="fa fa-refresh"></i></button>
+	      </span>
+    	</div>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">X data</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.data.xsource" ng-options="column for column in trace.data.columns"></select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></i></button>
+	      </span>
+    	</div>
+	  </div>
+
+	  <label class="col-sm-1 control-label">Axis</label>
+		<div class="col-sm-3">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.xaxis">
+	        <option ng-repeat="a in axesNames | filter:'x':startsWith">{{a}}</option>
+	      </select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Axis" class="fa fa-plus"></i></button>
+	      </span>
+      </div>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Y data</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.data.ysource">
+					<option ng-repeat="column in trace.data.columns">{{column}}</option>
+				</select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></i></button>
+	      </span>
+    	</div>
+	  </div>
+
+	  <label class="col-sm-1 control-label">Axis</label>
+		<div class="col-sm-3">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.yaxis">
+	        <option ng-repeat="a in axesNames | filter:'y':startsWith">{{a}}</option>
+	      </select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Axis" class="fa fa-plus"></i></button>
+	      </span>
+      </div>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Fill</label>
+		<div class="btn-group col-sm-10">
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'none'">None</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tozeroy'">To Zero Y</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tonexty'">To Next Y</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tozerox'">To Zero X</label>
+      <label class="btn btn-default" ng-model="axis.type" uib-btn-radio="'tonextx'">To Next X</label>
+  	</div>
+  </div>
+</form>
+
+<h5>Marker</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input ng-change="updateTraceMode()" bs-switch ng-model="trace.data.showmarkers" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Symbol Mode</label>
+	  <div class="btn-group col-sm-3">
+      <label class="btn btn-default" ng-model="trace.data.marker.symbolmode" uib-btn-radio="'fixed'">Fixed</label>
+      <label class="btn btn-default" ng-model="trace.data.marker.symbolmode" uib-btn-radio="'calc'">Calculated</label>
+	  </div>
+
+	  <!-- Fixed Symbols -->
+	  <div ng-if="trace.data.marker.symbolmode == 'fixed'">
+	  	<label class="col-sm-1 control-label">Symbol</label>
+	  	<div class="col-sm-6">
+	  		<select ng-model="trace.marker.symbol" class="form-control" >
+					<option ng-repeat="s in symbols">{{s}}</option>
+	  		</select>
+	  	</div>
+	  </div>
+
+	  <!-- Calculated Symbols -->
+	  <div ng-if="trace.data.marker.symbolmode == 'calc'">
+	  	<label class="col-sm-1 control-label">Rule</label>
+	  	<div class="col-sm-6">
+	  		<div class="input-group">
+		  		<input type="text" editable="false" class="form-control" value="Please Select a Rule">
+				  <div class="input-group-btn">
+				    <button ng-click="selectMarkerSymbolRule()" type="button" class="btn btn-default"><i tooltip-placement="bottom" uib-tooltip="Select and configure rule" class="fa fa-ellipsis-h"></i></button>
+				  </div>
+				</div>
+	  	</div>
+	  </div>
+
+
+  </div>
+
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Size Mode</label>
+	  <div class="btn-group col-sm-3">
+      <label class="btn btn-default" ng-model="trace.data.marker.sizemode" uib-btn-radio="'fixed'">Fixed</label>
+      <label class="btn btn-default" ng-model="trace.data.marker.sizemode" uib-btn-radio="'calc'">Calculated</label>
+	  </div>
+
+	  <!-- Fixed Size -->
+	  <div ng-if="trace.data.marker.sizemode == 'fixed'">
+	  	<label class="col-sm-1 control-label">Size</label>
+	  	<div class="col-sm-2">
+	  		<input class="form-control" type="number" ng-model="trace.marker.size" min="1" max="500" step="1" />
+	  	</div>
+	  </div>
+
+	  <!-- Calculated Size -->
+	  <div ng-if="trace.data.marker.sizemode == 'calc'">
+	  	<label class="col-sm-1 control-label">Rule</label>
+	  	<div class="col-sm-6">
+	  		<div class="input-group">
+		  		<input type="text" editable="false" class="form-control" ng-model="trace.data.marker.sizerule">
+				  <div class="input-group-btn">
+				    <button ng-click="selectMarkerSizeRule()" type="button" class="btn btn-default"><i tooltip-placement="bottom" uib-tooltip="Select and configure rule" class="fa fa-ellipsis-h"></i></button>
+				  </div>
+				</div>
+	  	</div>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Opacity Mode</label>
+	  <div class="btn-group col-sm-3">
+      <label class="btn btn-default" ng-model="trace.data.marker.opacitymode" uib-btn-radio="'fixed'">Fixed</label>
+      <label class="btn btn-default" ng-model="trace.data.marker.opacitymode" uib-btn-radio="'calc'">Calculated</label>
+	  </div>
+
+	  <!-- Fixed Opacity -->
+	  <div ng-if="trace.data.marker.opacitymode == 'fixed'">
+	  	<label class="col-sm-1 control-label">Opacity</label>
+	  	<div class="col-sm-2">
+	  		<input class="form-control" type="number" ng-model="trace.marker.opacity" min="0" max="1" step="0.01" />
+	  	</div>
+	  </div>
+
+	  <!-- Calculated Opacity -->
+	  <div ng-if="trace.data.marker.opacitymode == 'calc'">
+	  	<label class="col-sm-1 control-label">Rule</label>
+	  	<div class="col-sm-6">
+	  		<div class="input-group">
+		  		<input type="text" editable="false" class="form-control" value="Please Select a Rule">
+				  <div class="input-group-btn">
+				    <button ng-click="selectOpacitySizeRule()" type="button" class="btn btn-default"><i tooltip-placement="bottom" uib-tooltip="Select and configure rule" class="fa fa-ellipsis-h"></i></button>
+				  </div>
+				</div>
+	  	</div>
+	  </div>
+  </div>
+
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Color Mode</label>
+	  <div class="btn-group col-sm-3">
+      <label class="btn btn-default" ng-model="trace.data.marker.colormode" uib-btn-radio="'fixed'">Fixed</label>
+      <label class="btn btn-default" ng-model="trace.data.marker.colormode" uib-btn-radio="'calc'">Calculated</label>
+	  </div>
+
+	  <!-- Fixed Color -->
+	  <div ng-if="trace.data.marker.colormode == 'fixed'">
+	  	<label class="col-sm-1 control-label">Color</label>
+	  	<div class="col-sm-2">
+	  		<input style="padding: 0px 4px;" class="form-control" type="color" ng-model="trace.marker.color"/>
+	  	</div>
+	  </div>
+
+	  <!-- Calculated Color -->
+	  <div ng-if="trace.data.marker.colormode == 'calc'">
+	  	<label class="col-sm-1 control-label">Rule</label>
+	  	<div class="col-sm-6">
+	  		<div class="input-group">
+		  		<input type="text" readonly class="form-control" value="Please Select a Rule">
+				  <div class="input-group-btn">
+				    <button ng-click="selectMarkerColorRule()" type="button" class="btn btn-default"><i tooltip-placement="bottom" uib-tooltip="Select and configure rule" class="fa fa-ellipsis-h"></i></button>
+				  </div>
+				</div>
+	  	</div>
+	  </div>
+
+	 
+  </div>
+</form>
+
+<h5>Line</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show</label>
+		<div class="col-sm-2">
+	  	<input  ng-change="updateTraceMode()" bs-switch ng-model="trace.data.showline" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Width</label>
+		<div class="col-sm-2">
+	  	<input class="form-control" type="number" ng-model="trace.line.width" min="1" max="50" />
+	  </div>
+
+		<label class="col-sm-2 control-label">Dash</label>
+	  <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="trace.line.dash" uib-btn-radio="'solid'">Solid</label>
+      <label class="btn btn-default" ng-model="trace.line.dash" uib-btn-radio="'dash'">Dash</label>
+      <label class="btn btn-default" ng-model="trace.line.dash" uib-btn-radio="'dot'">Dot</label>
+      <label class="btn btn-default" ng-model="trace.line.dash" uib-btn-radio="'dashdot'">Dash-Dot</label>
+  	</div>
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Color</label>
+		<div class="col-sm-2">
+	  	<input style="padding: 0px 4px;" class="form-control" type="color" ng-model="trace.line.color"/>
+	  </div>
+
+	  <label class="col-sm-2 control-label">Shape</label>
+		<div class="btn-group col-sm-6">
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'linear'">Linear</label>
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'spline'">Spline</label>
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'hv'">HV</label>
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'vh'">VH</label>
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'hvh'">HVH</label>
+      <label class="btn btn-default" ng-model="trace.line.shape" uib-btn-radio="'vhv'">VHV</label>
+  	</div>
+
+  </div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Opacity</label>
+		<div class="col-sm-2">
+	  	<input class="form-control" type="number" ng-model="trace.line.opacity" min="0" max="1" step="0.01"/>
+	  </div>
+
+	   <label class="col-sm-2 control-label">Smoothing</label>
+	   <div class="col-sm-2">
+	  	<input class="form-control" type="number" ng-model="trace.line.smoothing" min="0" step="0.1"/>
+	  </div>
+  </div>
+
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Connect Gaps</label>
+		<div class="col-sm-2">
+	  	<input bs-switch ng-model="trace.connectgaps" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+</form>
+
+
+<h5>Text</h5>
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Show Always</label>
+		<div class="col-sm-2">
+	  	<input ng-change="updateTraceMode()" bs-switch ng-model="trace.data.showtext" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+  </div>
+
+  <div class="form-group">
+		<label class="col-sm-2 control-label">Text Data</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<select class="form-control" ng-model="trace.data.textsource">
+					<option ng-repeat="column in trace.data.columns">{{column}}</option>
+				</select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></i></button>
+	      </span>
+    	</div>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label">Position</label>
+	  <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.data.text.vpos" uib-btn-radio="'top'">Top</label>
+      <label class="btn btn-default" ng-model="axis.type.text.vpos" uib-btn-radio="'middle'">Middle</label>
+      <label class="btn btn-default" ng-model="axis.type.text.vpos" uib-btn-radio="'bottom'">Bottom</label>
+  	</div>
+
+	  <div class="btn-group col-sm-4">
+      <label class="btn btn-default" ng-model="axis.type.text.hpos" uib-btn-radio="'left'">Left</label>
+      <label class="btn btn-default" ng-model="axis.type.text.hpos" uib-btn-radio="'center'">Center</label>
+      <label class="btn btn-default" ng-model="axis.type.text.hpos" uib-btn-radio="'right'">Right</label>
+  	</div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Font</label>
+    <div class="col-sm-4">
+      <select  class="form-control" ng-model="trace.textfont.family">
+	    	<option ng-repeat="font in fonts">{{font}}</option>
+	    </select>
+    </div>
+    <label class="col-sm-1 control-label">Size</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" ng-model="trace.textfont.size" min="1" max="50" />
+    </div>
+    <label class="col-sm-1 control-label">Color</label>
+    <div class="col-sm-2">
+      <input style="padding: 0px 4px;" class="form-control" type="color" ng-model="trace.textfont.color"/>
+    </div>
+  </div>
+</form>
+</div>

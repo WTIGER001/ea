@@ -9,7 +9,6 @@ angular
   .service('trace', ['$http', 'lodash', 'SessionService', '$rootScope', function ($http, lodash, SessionService, $rootScope) {
   	var util = this;
 
-
  	util.makeTraces = function(config) {
  		if (angular.isDefined(config) == false) {
 			 config = {axis : {x : "Time", y: "Altitude"}};
@@ -33,9 +32,16 @@ angular
 	  					opacity : 1.0
 	  				}
 	  			};
-
+          // Used
+          trace.data = {};
+          trace.data.dataset = dataset;
+          trace.data.columns = dataset.fields;
+          trace.data.xsource = config.axis.x;
+          trace.data.ysource = config.axis.y;
 	  			trace.x = util.getDataArray(dataset, config.axis.x);
 	  			trace.y = util.getDataArray(dataset, config.axis.y);
+          trace.xaxis = "x1";
+          trace.yaxis = "y1";
 	  			trace.markers
 	  			//lodash.forEach(configuration.axis, function(axName) { 
 	  			//	trace[axName] = util.getDataArray(dataset, axName);

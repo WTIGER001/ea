@@ -1,0 +1,32 @@
+/*
+Data Manager
+------------------------------------
+The Data Manager is responsible for operating on the data that is avilable
+
+*/
+
+// Keeps all the locals out of the global namespace
+(function() {
+
+	'use strict';
+
+	/**
+		Extension Manager
+	*/
+	function DataUtil($http, lodash, SessionService) {
+
+		function loadData() {
+			
+		}
+
+		
+
+		// exports
+		var svc = {};
+		
+		return svc;
+	}
+
+	angular.module('eaApp').factory('DataUtil', ['$http', 'lodash', 'SessionService' ExtensionManager]); 
+
+})();

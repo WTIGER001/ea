@@ -36,7 +36,7 @@ app.directive('plotPortlet', [function () {
   	return {
   		restrict: 'A',
   		scope : false,
-  		templateUrl: "templates/plot.html",
+  		templateUrl: "components/plotting/plot.html",
   		link: function (scope, element, attrs) {
   			//element.parent().parent().parent().remove();
   			scope.uuid = attrs['uuid'];

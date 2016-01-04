@@ -1,0 +1,33 @@
+<!-- Auto Form UI -->
+<form class="form-horizontal">
+	<div ng-repeat="p in ext.paramDefs" class="form-group">
+		<!-- Label --> 
+		<label class="col-sm-2 control-label" tooltip-placement="right" uib-tooltip="{{p.desc}}">{{p.name}}</label>
+		
+		<!-- Field --> <!-- Requires data.columns -->
+		<div ng-if="p.type == 'field'" class="col-sm-6">
+			<div class="input-group">
+				<select class="form-control"  ng-model="params[ext.id][p.id]" ng-options="column for column in trace.data.columns"></select>
+				<span class="input-group-btn">
+	        <button class="btn btn-default" type="button"><i tooltip-placement="bottom" uib-tooltip="New Column" class="fa fa-plus"></i></button>
+	      </span>
+	  	</div>
+	  </div>
+
+		<!-- number --> 
+		<div ng-if="p.type == 'number'" class="col-sm-2">
+			<input class="form-control" type="number" ng-model="params[ext.id][p.id]" min="{{p.min}}" max="{{p.max}}" step="{{p.step}}" />
+	  </div>
+
+		<!-- boolean --> 
+		<div ng-if="p.type == 'boolean'" class="col-sm-2">
+			<input bs-switch ng-model="params[ext.id][p.id]" type="checkbox" switch-on-text="Yes" switch-off-text="No"></input>
+	  </div>
+
+		<!-- choice --> 
+		<div ng-if="p.type == 'select'" class="col-sm-6">
+			<select class="form-control" ng-model="params[ext.id][p.id]" ng-options="choice[{{p.label}}] for choice in p.values"></select>
+	  </div>
+
+	</div>
+</form>
